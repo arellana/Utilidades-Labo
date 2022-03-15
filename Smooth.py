@@ -3,25 +3,27 @@ import matplotlib.pyplot as plt
 from io import StringIO
 from numpy.fft import fft, fftfreq
 
-q = open('ch8average.txt').read().replace(',', '.') #Remplazo , por .
-datAAv = np.loadtxt(StringIO(q), skiprows = 2, delimiter = None) #Tomo solo lo que necesito
+#En caso de que la tira de datos este cargada con puntuacion para float ","
+q = open('data.txt').read().replace(',', '.') #Remplazo , por .
+datAAv = np.loadtxt(StringIO(q), delimiter = None)#, skiprows = 2) #Tomo solo lo que necesito
 
 tiempo = datAAv[:,0]
 temp = datAAv[:,1]
-Temsmooth = datAAv[:,2]
+# Temsmooth = datAAv[:,2]
 
-for i in range(0,len(tiempo)):
-    tiempo[i] = tiempo[i]/(10**(18))
-    temp[i] = temp[i]/(10**(18))
-    Temsmooth[i] = Temsmooth[i]/(10**(18))
+# for i in range(0,len(tiempo)):
+#     tiempo[i] = tiempo[i]/(10**(18))
+#     temp[i] = temp[i]/(10**(18))
+#     Temsmooth[i] = Temsmooth[i]/(10**(18))
 
-#print(datAAv)
+# datos = np.zeros(len(temp))
+# for i in range(0,len(temp)):
+#     datos[i] = temp[i] - Temsmooth[i]
+#     #print(datos6[i], Tsmooth[i])
 
-datos = np.zeros(len(temp))
-for i in range(0,len(temp)):
-    datos[i] = temp[i] - Temsmooth[i]
-    #print(datos6[i], Tsmooth[i])
+datos = temp
 
+#Transformada de Fourier
 FFT = fft(datos)/len(datos)
 real = np.zeros(len(FFT))
 imaginario = np.zeros(len(FFT))
@@ -38,13 +40,13 @@ print(amplitudFFT)
 
 freq = fftfreq(FFT.size)
 
-"""freq2"""
+# """freq2"""
 
-freq2 = 1/600
+# freq2 = 1/600
 
-n = len(datos)
-k = np.arange(n)
-#T = n/
+# n = len(datos)
+# k = np.arange(n)
+# #T = n/
 
 
 
