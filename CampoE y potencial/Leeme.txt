@@ -1,0 +1,32 @@
+Estos programas resuelven el campo electrostatico mediante la discretizacion del potencial electrostatico 
+en rectangulo utilizando el metodo de diferencias finitas.
+
+La discretizacion de los campos van en los archivos "conductorj.txt", donde j es el numero de la medicion, 
+dentro de la carpeta "Mediciones"; ordenados en 3 columnas X, Y, Volt. 
+Con X e Y las cordenadas del campo y Volt, la tension medida.
+
+----------------***************----------------
+Dentro de la carpeta programas:
+
+AutorunCampos.py: ejecuta los programas Campoj.py (j = 1,2,3), segun la eleccion del usuario,
+ubicados en la carpeta "programas"
+
+Campo.py: ordena los datos de "Conductor1.txt" en matrices y realiza la derivada espacial en X e Y para 
+obtener el campo. Estos, ordenados como 2 nuevas matrices, son guardadas en los archivos "Ex1.txt" 
+y en "Ey1.txt" guardandolos en "Camposdiscret" asi como el potencial en forma matricial en la carpeta 
+"Potenciales" y realizando el grafico aproximado del campo E, guardandolo en la carpeta "Campos".
+Campo2.py y Campo3.py resuelven identicamente para los archivos "Conductor2.txt" y "Conductor3.txt"
+
+----------------
+
+Potencial1.m: realiza en matlab los graficos tanto del campo E, como el grafico 3D del potencial electrostatico. 
+Analogo para Potencial2.m y Potencial3.m 
+
+----------------***************----------------
+
+Autorun.m: tras ejecutar Campo.py, Campo2.py y Campo3.py se puede ejecutar Autorun para elejir cual de 
+los 3 archivos se desea graficar. 
+
+(actualmente no esta funcionando si se ejecuta directamente, pero funciona si se ejecuta desde la aplicacion
+ o desde la terminal ingresando 'octave -f Autorun.m')
+ 
